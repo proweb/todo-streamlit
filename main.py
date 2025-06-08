@@ -39,7 +39,7 @@ st.subheader("Форма для добавления?")
 
 # Пример формы
 with st.form("todo_form", clear_on_submit=True):
-    input = st.text_input("Задача на сегодня:", icon=":material/arrow_forward:")
+    input = st.text_input("Задача на сегодня:", icon=None)
     submitted = st.form_submit_button("Submit", type="primary")
 
     if submitted and input:
