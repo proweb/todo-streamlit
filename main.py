@@ -16,36 +16,32 @@ st.sidebar.write("""
 """ )
 
 
-if "item" not in st.session_state:
-    st.session_state.item = []
+if "todos" not in st.session_state:
+    st.session_state['todos'] = []
+else:
+    st.subheader('Сделать сегодня:', anchor='todo')
+    for item in st.session_state['todos']:
+        st.markdown("- " + item)
 
 
-
- 
-st.subheader('Вывод ДО формы')
-st.caption("Хранилище сессии")
-st.write(st.session_state)
-
-
-# Заголовок приложения
-st.subheader("Форма для добавления?")
 
 # Пример формы
 with st.form("formTodo", clear_on_submit=True):
+    st.write("**Добавь что нибудь чувак**")
     input = st.text_input(label="Задача на сегодня:", placeholder='Что надо сделать?')
-    submitted = st.form_submit_button("Submit", type="primary")
+    submitted = st.form_submit_button("Добавить", type="primary")
 
     if submitted and input:
         # Заменит значение
-        st.session_state.item.append(input)
+        st.session_state['todos'].append(input)
         st.rerun()
 
 
 
-st.subheader('Вывод после формы')
-st.caption("То что ввели")
-st.write(input)
-st.caption("st.session_state.item")
-st.write(st.session_state)
-st.caption("Отправлена форма или нет")
-st.write(submitted)
+# st.subheader('Вывод после формы')
+# st.caption("То что ввели")
+# st.write(input)
+# st.caption("st.session_state['todos']")
+# st.write(st.session_state)
+# st.caption("Отправлена форма или нет")
+# st.write(submitted)todos
