@@ -19,8 +19,27 @@ uv add streamlit
 .venv\Scripts\activate
 ```
 
+
+
+
+запустить проект
 ```
-streamlit run main.py
+streamlit run .\main.py
 ```
 
 
+Выгрузка зависимостей 
+```
+uv pip freeze > requirements.txt
+```
+
+Обновить пакеты
+```
+uv pip install --upgrade streamlit
+```
+
+или попробовать
+```
+uv lock --upgrade
+uv sync
+```

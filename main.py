@@ -7,35 +7,41 @@ st.set_page_config(
     page_icon=":tomato:",
     layout="centered",
     initial_sidebar_state="expanded",
-    menu_items={'About': "Пример приложения от Сереги"}
 )
 
-# Инициализация списка сообщений
-if "messages" not in st.session_state:
-    st.session_state.messages = []
+st.sidebar.write("""
+# TODO :tomato:
+            
+Храним данные в сессии в виде List
+""" )
 
 
-# Отображение всех сообщений
-st.title("Задачки на сегодня:")
-for msg in st.session_state.messages:
-    st.write(f"**{msg['name']}:** {msg['message']}")
-    st.divider()
-
-
-st.write("---")
-
-# Заголовок приложения
-st.header("Что сделать хозяин надо?")
-
-# Форма для ввода данных
-with st.form("guestbook_form", clear_on_submit=True):
-    name = st.text_input("Задача")
-    message = st.text_area("Примечание")
-    submitted = st.form_submit_button("Отправить")
-
-    if submitted and name and message:
-        # Добавление нового сообщения
-        st.session_state.messages.append({"name": name, "message": message})
+if "todos" not in st.session_state:
+    st.session_state['todos'] = []
+else:
+    st.subheader('Сделать сегодня:', anchor='todo')
+    for item in st.session_state['todos']:
+        st.markdown("- " + item)
 
 
 
+# Пример формы
+with st.form("formTodo", clear_on_submit=True):
+    st.write("**Добавь что нибудь чувак**")
+    input = st.text_input(label="Задача на сегодня:", placeholder='Что надо сделать?')
+    submitted = st.form_submit_button("Добавить", type="primary")
+
+    if submitted and input:
+        # Заменит значение
+        st.session_state['todos'].append(input)
+        st.rerun()
+
+
+
+# st.subheader('Вывод после формы')
+# st.caption("То что ввели")
+# st.write(input)
+# st.caption("st.session_state['todos']")
+# st.write(st.session_state)
+# st.caption("Отправлена форма или нет")
+# st.write(submitted)todos
