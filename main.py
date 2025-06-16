@@ -3,16 +3,16 @@ import streamlit as st
 
 # Настройки окна браузера
 st.set_page_config(
-    page_title="Онлайн-помощник",
-    page_icon=":tomato:",
+    page_title="TODO списочек",
+    page_icon=":white_check_mark:",
     layout="centered",
-    initial_sidebar_state="expanded",
+    initial_sidebar_state="auto",
 )
 
 st.sidebar.write("""
-# TODO :tomato:
+# TODO :white_check_mark:
             
-Храним данные в сессии в виде List
+Тудушка на Python с Docker на Timeweb Apps
 """ )
 
 
