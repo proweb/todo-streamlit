@@ -28,10 +28,10 @@ st.write("---")
 st.header("Что сделать хозяин надо?")
 
 # Форма для ввода данных
-with st.form("guestbook_form"):
+with st.form("guestbook_form", clear_on_submit=True):
     name = st.text_input("Задача")
     message = st.text_area("Примечание")
-    submitted = st.form_submit_button("Старт")
+    submitted = st.form_submit_button("Отправить")
 
     if submitted and name and message:
         # Добавление нового сообщения
