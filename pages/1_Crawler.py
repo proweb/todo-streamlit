@@ -13,15 +13,22 @@ st.set_page_config(
     initial_sidebar_state="auto",
 )
 
-
 with st.sidebar:
     """
-    ## URL Crawler
+    # Python Mini-apps
+    """ 
+    st.page_link('main.py', label='Стартовый экран')
+    st.page_link('pages/1_Crawler.py', label='Мой краулер')
+    """
+    ---
+    
+    **URL Crawler**
     
     crawler with 
     
     urllib3 and BeautifulSoup
     """
+ 
 
 # Disable SSL warnings (not recommended for production)
 urllib3.disable_warnings()
