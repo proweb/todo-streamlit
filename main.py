@@ -14,6 +14,7 @@ with st.sidebar:
     """ 
     st.page_link('main.py', label='Стартовый экран')
     st.page_link('pages/1_Crawler.py', label='Мой краулер')
+    st.page_link('pages/2_Gigachat.py', label='Мой AI-помощник')
     """
     --- 
     
